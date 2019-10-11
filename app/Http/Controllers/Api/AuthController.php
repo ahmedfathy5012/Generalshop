@@ -46,9 +46,12 @@ class AuthController extends Controller
             $user = User::where('email' , $userName)->first();
             return new UserApiResource($user);
         }
-       return[
-           'error' => true,
-           'message' => 'User Login attempt Failed' ,
-       ];
+        $message = [
+            'error' => true,
+            'message' => 'User Login attempt Failed' ,
+        ];
+
+        return response($message,401);
+       
     }
 }
