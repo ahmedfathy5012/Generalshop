@@ -26,8 +26,11 @@ class CategoryController extends Controller
       }
 
     public function store(Request $request){
+        dd($request);
         $request->validate([
-            'category_name' => 'required'
+            'category_name' =>   'required',
+            'category_image' =>  'required',
+            'image_direction' => 'required',
         ]);
         $category_name = $request->input('category_name');
         if($this->categoryNameExists($category_name)){
@@ -35,7 +38,17 @@ class CategoryController extends Controller
         return redirect()->back();
         }
         $category = new Category();
-        $category->category_name = $category_name;
+        $category->name = $category_name;
+        $category->imag_direction =$request->input('image_direction');
+        
+
+        if($request->hasFile('category_image')){
+            
+            $image = $request->file('category_image');           
+             $path = $image->store('public');
+             $category->image_url =$path;
+        }
+       
         $category->save();
         Session::flash('message','Category ('.$category_name.') has been added');
         return redirect()->back();

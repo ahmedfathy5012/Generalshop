@@ -16,6 +16,8 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('category_name');
+            $table->String('image_direction')->default('left');
+            $table->String('image_url')->default('https://lorempixel.com/1000/600/?96798');
             $table->timestamps();
         });
     }
