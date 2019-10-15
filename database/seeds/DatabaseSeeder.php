@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         //factory(Address ::class , 1000)->create();
         //factory( User ::class , 500)->create();
-         //factory(product ::class , 1000)->create();
+         factory(product ::class , 1000)->create();
       // factory(Image ::class , 3500)->create();
        //factory(Review ::class , 3500)->create();
-       factory( Category ::class , 50)->create();
+      // factory( Category ::class , 12)->create();
       // factory( Tag ::class , 150)->create();
      //  factory( Ticket ::class , 150)->create();
 

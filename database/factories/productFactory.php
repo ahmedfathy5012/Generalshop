@@ -12,6 +12,6 @@ $factory->define(product::class, function (Faker $faker) {
         'unit'=> $faker->numberBetween(1,20),
         'price'=> $faker->randomfloat(2,10,500),
         'total'=>$faker->numberBetween(2,250),
-        'category_id'=>$faker->numberBetween(1,50),
+        'category_id'=>$faker->numberBetween(1,12),
     ];
 });
