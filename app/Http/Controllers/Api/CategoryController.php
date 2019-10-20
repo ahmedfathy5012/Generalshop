@@ -19,7 +19,7 @@ class CategoryController extends Controller
     }
 
     public function products($id){
-        $category = Category::find($id);
+        $category = Category::findOrFail($id);
         return ProductResource::collection($category->products()->paginate());
     }
 }

@@ -20,7 +20,7 @@ class User extends Authenticatable
         'first_name', 'last_name', 'email',
         'email_verified','mobile','mobile_verified',
         'password','shpping_address','billing_address',
-        'remember_token','api_token'
+        'remember_token','api_token' , 'cart_id'
     ];
 
     /**
@@ -87,6 +87,11 @@ class User extends Authenticatable
 
 public function formatedName(){
   return $this ->first_name . ' ' . $this->last_name ;
+}
+
+
+public function cart(){
+ return $this->hasOne(Cart::class);
 }
 
 }
