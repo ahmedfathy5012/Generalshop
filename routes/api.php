@@ -40,11 +40,16 @@ Route::post('auth/register' , 'Api\AuthController@register');
 Route::post('auth/login' , 'Api\AuthController@login');
 
 
-Route::post('carts' , 'Api\CartController@addProductToCart');
 
-Route::group(['auth:api'],function(){
-      // Get full products
+
+
+
+
+Route::middleware('auth:api')->group(function(){
        
+
+      
+      Route::post('carts' , 'Api\CartController@addProductToCart');  
 });
 
 //
