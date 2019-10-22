@@ -4,10 +4,7 @@
     <list default="true" id="84718757-08d6-4e43-ac95-b9c6b6e20f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CartItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CartItem.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,6 +150,8 @@
       <workItem from="1570610707440" duration="2005000" />
       <workItem from="1570650254183" duration="1849000" />
       <workItem from="1571697659842" duration="1693000" />
+      <workItem from="1571700345946" duration="742000" />
+      <workItem from="1571704950795" duration="1581000" />
     </task>
     <task id="LOCAL-00001" summary="modify user register web">
       <created>1570578305942</created>
@@ -161,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570578305942</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="cart Item">
+      <created>1571700492569</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571700492570</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +188,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modify user register web" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify user register web" />
+    <MESSAGE value="cart Item" />
+    <option name="LAST_COMMIT_MESSAGE" value="cart Item" />
   </component>
 </project>

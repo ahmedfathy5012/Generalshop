@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
     public function addProductToCart(Request $request){
+           $request->validate([
+               'product_id' => 'required',
+               'qty'        => 'required',
+           ]);
            $user = Auth::user();
            $product_id = $request->input('product_id');
            $product    = product::findOrFail($product_id);
@@ -28,7 +32,7 @@ class CartController extends Controller
            }
            $cart->save();
            // Return Response
-        return new CartResource();
+        return new CartResource($cart);
     }
 
 

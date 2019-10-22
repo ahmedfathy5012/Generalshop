@@ -21,16 +21,32 @@ class Cart extends Model
 
     public function cartItems(){
          // Parse Items And Return Array Of CartItem
-
+        if(is_null($this->cart_item)){
+            $this->cart_item= [];
+            return $this->cart_item;
+        }
+        return json_decode($this->cart_item);
     }
 
 
     public function addProductToCart(product $product , $qty = 1){
-
+         $cartItems = $this->cartItems();
+        /**
+         * @var $cartItem CartItem
+         */
+          array_push($cartItems,$cartItem);
     }
 
     public  function increaseProductInCart(product $product , $qty = 1){
-
+      $cartItems = $this->cartItems();
+      /**
+       * @var $cartItem CartItem
+       */
+      foreach ($cartItems as $cartItem){
+           if($cartItem->product->id === $product->id){
+               $cartItem->qty += $qty;
+           }
+      }
     }
 
     public function inItems($product_id){
