@@ -16,31 +16,37 @@ class CartController extends Controller
                'qty'        => 'required',
            ]);
            $user = Auth::user();
+
            $product_id = $request->input('product_id');
            $product    = product::findOrFail($product_id);
+
            $qty        = $request->input('qty');
            // Get The User Cart
            $cart = $this->checkCartStatus($user->cart);
 
-           // Check If Product Already In Cart
+           // Check If Product Already In Cartreturn [
+
            if($cart->inItems($product_id)){
            // If Exists qty++
            $cart->increaseProductInCart($product , $qty);
            }else{
            // Else Add To Cart
-               $cart->addProductToCart($product , $qty);
+             $cart->addProductToCart($product , $qty);
+
            }
+           return $cart;
            $cart->save();
            // Return Response
         return new CartResource($cart);
     }
 
 
-    private function checkCartStatus(Cart $cart){
+    private function checkCartStatus(Cart $cart = null){
         if(is_null($cart)){
            $cart = new Cart;
            $cart->cart_item = [];
            $cart->total = 0 ;
+           $cart->user_id = Auth::user()->id;
         }
         return $cart;
     }

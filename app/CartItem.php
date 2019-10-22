@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class CartItem extends Model
+
+class CartItem
 {
-    
+
     /**
      * @var $product product
      */
@@ -17,5 +17,6 @@ class CartItem extends Model
     {
         $this->product = $product;
         $this->qty = $qty;
+
     }
 }

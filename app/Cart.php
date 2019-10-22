@@ -25,7 +25,7 @@ class Cart extends Model
             $this->cart_item= [];
             return $this->cart_item;
         }
-        return json_decode($this->cart_item);
+        return $this->cart_item;
     }
 
 
@@ -34,7 +34,9 @@ class Cart extends Model
         /**
          * @var $cartItem CartItem
          */
+          $cartItem = new CartItem($product , $qty);
           array_push($cartItems,$cartItem);
+          return $cartItems;
     }
 
     public  function increaseProductInCart(product $product , $qty = 1){
