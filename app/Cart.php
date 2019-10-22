@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     protected $fillable = [
-        'cart_item' , 'total',
+        'cart_item' , 'total', 'user_id'
     ];
 
 
@@ -19,28 +19,35 @@ class Cart extends Model
         return $this->belongsTo(order::class);
     }
 
-    public function cartItems(){
-         // Parse Items And Return Array Of CartItem
-        if(is_null($this->cart_item)){
-            $this->cart_item= [];
-            return $this->cart_item;
-        }
-        return $this->cart_item;
-    }
-
 
     public function addProductToCart(product $product , $qty = 1){
-         $cartItems = $this->cartItems();
+        $cartItems = $this->cart_item;
+        if(is_null($cartItems)){
+            $cartItems = [];
+        }else{
+            if(!is_array($cartItems)){
+                $cartItems = json_decode($cartItems);
+            }
+        }
         /**
          * @var $cartItem CartItem
          */
           $cartItem = new CartItem($product , $qty);
           array_push($cartItems,$cartItem);
+          $this->cart_item = json_encode($cartItems);
+
           return $cartItems;
     }
 
     public  function increaseProductInCart(product $product , $qty = 1){
-      $cartItems = $this->cartItems();
+        $cartItems = $this->cart_item;
+        if(is_null($cartItems)){
+            $cartItems = [];
+        }else{
+            if(!is_array($cartItems)){
+                $cartItems = json_decode($cartItems);
+            }
+        }
       /**
        * @var $cartItem CartItem
        */
@@ -49,16 +56,24 @@ class Cart extends Model
                $cartItem->qty += $qty;
            }
       }
+        $this->cart_item = json_encode($cartItems);
     }
 
     public function inItems($product_id){
         // check if product id in items
-        $cartItems = $this->cartItems();
+        $cartItems = $this->cart_item;
+        if(is_null($cartItems)){
+            $cartItems = [];
+        }else{
+          if(!is_array($cartItems)){
+              $cartItems = json_decode($cartItems);
+          }
+        }
         /**
          * @var $cartItem CartItem
          */
         foreach($cartItems as $cartItem){
-          if($product_id === $cartItem->product->id){
+          if($product_id == $cartItem->product->id){
               return true;
           }
         }
