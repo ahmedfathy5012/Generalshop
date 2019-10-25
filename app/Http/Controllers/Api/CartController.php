@@ -2,14 +2,37 @@
 
 namespace App\Http\Controllers\Api;
 use App\Cart;
+use App\CartItem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CartResource;
+use App\Http\Resources\ProductResource;
 use App\product;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\JsonDecoder;
 
 class CartController extends Controller
 {
+
+
+    public function index(Request $request){
+       $user = Auth::user();
+       $cart = $user->cart;
+       $cartItems = json_decode($cart->cart_item);
+       $finalCartItems = [];
+       foreach ($cartItems as $cartItem) {
+           $product = product::find(intval($cartItem->product->id));
+           $finalCartItem = new \stdClass();
+           $finalCartItem->product = new ProductResource($product);
+           $finalCartItem->qty = $cartItem->qty;
+           array_push($finalCartItems, $finalCartItem);
+       }
+       return [
+           'cart_items' => $finalCartItems
+       ];
+    }
+
+
     public function addProductToCart(Request $request){
            $request->validate([
                'product_id' => 'required',
@@ -42,7 +65,6 @@ class CartController extends Controller
            $user->save();
            return $cart;
            // Return Response
-
     }
 
 

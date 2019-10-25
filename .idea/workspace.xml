@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="84718757-08d6-4e43-ac95-b9c6b6e20f11" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Cart.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CartController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -158,7 +157,7 @@
       <workItem from="1571728521800" duration="1827000" />
       <workItem from="1571730390303" duration="1781000" />
       <workItem from="1571732664516" duration="1450000" />
-      <workItem from="1571734201091" duration="244000" />
+      <workItem from="1571734201091" duration="1793000" />
     </task>
     <task id="LOCAL-00001" summary="modify user register web">
       <created>1570578305942</created>
