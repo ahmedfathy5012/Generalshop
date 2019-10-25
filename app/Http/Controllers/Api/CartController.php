@@ -28,7 +28,9 @@ class CartController extends Controller
            array_push($finalCartItems, $finalCartItem);
        }
        return [
-           'cart_items' => $finalCartItems
+           'cart_items' => $finalCartItems,
+           'id'         => $cart->id,
+           'total'         => $cart->total,
        ];
     }
 
