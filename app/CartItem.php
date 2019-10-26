@@ -13,7 +13,7 @@ class CartItem
     public $product;
     public $qty;
 
-    public function __construct(product $product , $qty)
+    public function __construct(product $product , $qty = 1)
     {
         $this->product = $product;
         $this->qty = $qty;

@@ -32,7 +32,7 @@ class Cart extends Model
         /**
          * @var $cartItem CartItem
          */
-          $cartItem = new CartItem($product , $qty);
+          $cartItem = new CartItem($product , 1);
           array_push($cartItems,$cartItem);
           $this->cart_item = json_encode($cartItems);
           $tempTotal = 0;
